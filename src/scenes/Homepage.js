@@ -4,10 +4,36 @@ import Fade from 'react-reveal/Fade';
 import Header from 'parts/Header'
 import Section from 'elements/Section'
 import Clients from 'parts/Clients'
+import Feature from 'parts/Feature'
 
 import HeroImage from 'assets/images/hero-image.png'
+import Feature01 from 'assets/images/feature-tile-icon-01.svg'
+import Feature02 from 'assets/images/feature-tile-icon-02.svg'
+import Feature03 from 'assets/images/feature-tile-icon-03.svg'
 
 export default function Homepage() {
+
+    const feature = [
+        {
+            img: Feature01,
+            imgAlt: "Feature 01",
+            title: "Join the system",
+            desc: "A pseudo-Latin text used in web design in place of things to emphasise design."
+        },
+        {
+            img: Feature02,
+            imgAlt: "Feature 02",
+            title: "Join the system",
+            desc: "A pseudo-Latin text used in web layout in place of things to emphasise design."
+        },
+        {
+            img: Feature03,
+            imgAlt: "Feature 03",
+            title: "Join the system",
+            desc: "A pseudo-Latin text used in web printing in place of things to emphasise design."
+        }
+    ];
+
     return (
         <div className="body-wrap">
             <Header></Header>
@@ -54,6 +80,20 @@ export default function Homepage() {
 					</div>
                 </Section>
                 <Clients/>
+                <Section className="features-tiles">
+                    <div class="container">
+						<div class="features-tiles-inner section-inner">
+                            <div class="tiles-wrap">
+                                {feature.map((element,index) => 
+                                    <Feature key={index} 
+                                    delayInMS={index * 1000} 
+                                    data={element}/>)
+                                }
+                                
+                            </div>
+                        </div>
+                    </div>
+                </Section>
             </main>
         </div>
     )
